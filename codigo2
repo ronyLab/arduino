@@ -1,0 +1,16 @@
+#include <HCSR04.h>
+
+#define TRIG_PIN 12
+#define ECHO_PIN 13
+
+UltraSonicDistanceSensor distanceSensor(TRIG_PIN, ECHO_PIN, 20, 4000);
+
+void setup () {
+  Serial.begin(9600);  // Inicia a conexão serial para imprimir valores do sensor
+}
+
+void loop () {
+  // A cada 250 milissegundos, faz uma medição usando o sensor e imprime a distância em centímetros
+  Serial.println(distanceSensor.measureDistanceCm());
+  delay(250);
+}
